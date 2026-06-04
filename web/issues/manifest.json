@@ -1,0 +1,60 @@
+[
+  {
+    "issue": 1,
+    "title": "GitHub 本周爆款：AI 与云服务霸榜",
+    "date": "2026-06-04",
+    "repo_count": 10,
+    "repos": [
+      {
+        "full_name": "pewdiepie-archdaemon/odysseus",
+        "stargazers_count": 44266,
+        "score": 4
+      },
+      {
+        "full_name": "Gloridust/WechatOnCloud",
+        "stargazers_count": 1953,
+        "score": 4
+      },
+      {
+        "full_name": "b-nnett/goose",
+        "stargazers_count": 1476,
+        "score": 3
+      },
+      {
+        "full_name": "asz798838958/aBaiAutoplus",
+        "stargazers_count": 1403,
+        "score": 4
+      },
+      {
+        "full_name": "Sophomoresty/gemini-web2api",
+        "stargazers_count": 1353,
+        "score": 4
+      },
+      {
+        "full_name": "zgwl/chinese-buy-us-stock-guide",
+        "stargazers_count": 1222,
+        "score": 4
+      },
+      {
+        "full_name": "MatinSenPai/SenPaiScanner",
+        "stargazers_count": 1033,
+        "score": 4
+      },
+      {
+        "full_name": "cpaczek/skylight",
+        "stargazers_count": 822,
+        "score": 4
+      },
+      {
+        "full_name": "Michaelliv/pi-dynamic-workflows",
+        "stargazers_count": 772,
+        "score": 4
+      },
+      {
+        "full_name": "ClaudioDrews/memory-os",
+        "stargazers_count": 762,
+        "score": 4
+      }
+    ]
+  }
+]

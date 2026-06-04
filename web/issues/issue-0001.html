@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub 本周爆款：AI 与云服务霸榜</title>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      background-color: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #333;
+    }
+    .container {
+      max-width: 640px; margin: 0 auto;
+      background: #fff; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff; padding: 32px 28px; text-align: center;
+    }
+    .header h1 { margin: 0 0 8px; font-size: 24px; }
+    .header .date { font-size: 14px; opacity: 0.85; }
+    .intro {
+      padding: 24px 28px; font-size: 15px; line-height: 1.7;
+      color: #555; border-bottom: 1px solid #eee;
+    }
+    .repo-list { padding: 16px 28px 24px; }
+    .repo-card {
+      border: 1px solid #e8e8e8; border-radius: 10px;
+      padding: 20px; margin-bottom: 16px;
+      transition: box-shadow 0.2s;
+    }
+    .repo-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .repo-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    }
+    .repo-index {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #667eea; color: #fff; font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .repo-name {
+      font-size: 17px; font-weight: 700; color: #1a1a1a;
+      text-decoration: none;
+    }
+    .repo-name:hover { color: #667eea; text-decoration: underline; }
+    .repo-tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+    .tag {
+      font-size: 11px; padding: 2px 8px; border-radius: 10px;
+      background: #f0f0f0; color: #666;
+    }
+    .tag.lang { background: #e8f0fe; color: #1967d2; }
+    .tag.star { background: #fff3e0; color: #e65100; }
+    .tag.score { background: #e8f5e9; color: #2e7d32; }
+    .repo-desc { font-size: 14px; color: #555; line-height: 1.6; margin: 8px 0; }
+    .repo-features {
+      font-size: 13px; color: #666; padding-left: 18px; margin: 6px 0;
+    }
+    .repo-features li { margin: 4px 0; }
+    .repo-audience {
+      font-size: 12px; color: #999; margin-top: 6px;
+      font-style: italic;
+    }
+    .footer {
+      background: #fafafa; padding: 24px 28px;
+      text-align: center; font-size: 12px; color: #999;
+      border-top: 1px solid #eee;
+    }
+    .footer a { color: #667eea; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>GitHub 本周爆款：AI 与云服务霸榜</h1>
+    <div class="date">2026.06.01 - 2026.06.07 &middot; 第 1 期</div>
+  </div>
+
+  
+  <div class="intro">这周的 GitHub 热门项目，有的让你在 NAS 上跑微信（对，没看错），有的把飞机实时投到你家天花板。最亮眼的要数 odysseus——一个自托管 AI 工作台，想摆脱 ChatGPT 的可以看看；还有 memory-os，让 AI 代理永久记住你的项目决策，再也不用重复解释。往下翻，保证有惊喜。</div>
+  
+
+  <div class="repo-list">
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">1</div>
+        <a href="https://github.com/pewdiepie-archdaemon/odysseus" class="repo-name">pewdiepie-archdaemon/odysseus</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">JavaScript</span>
+        <span class="tag star">⭐ 44266</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">自托管AI工作台，替代ChatGPT</div>
+      
+      <ul class="repo-features">
+        
+        <li>本地模型聊天与API调用</li>
+        
+        <li>智能代理执行复杂任务</li>
+        
+        <li>硬件扫描推荐模型</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 隐私优先、本地运行，避免数据外泄，给开发者更多控制权
+      </div>
+      
+      
+      <div class="repo-audience">👤 隐私敏感开发者</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">2</div>
+        <a href="https://github.com/Gloridust/WechatOnCloud" class="repo-name">Gloridust/WechatOnCloud</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">TypeScript</span>
+        <span class="tag star">⭐ 1953</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">在NAS上跑服务端微信，多端共享会话</div>
+      
+      <ul class="repo-features">
+        
+        <li>支持多微信实例独立运行</li>
+        
+        <li>浏览器远程访问，消息同步</li>
+        
+        <li>基于Docker部署，不修改微信客户端</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 解决微信无法多设备同步的痛点，让NAS变成微信服务器，实用且创新
+      </div>
+      
+      
+      <div class="repo-audience">👤 NAS用户和开发者</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">3</div>
+        <a href="https://github.com/b-nnett/goose" class="repo-name">b-nnett/goose</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">Rust</span>
+        <span class="tag star">⭐ 1476</span>
+        
+        <span class="tag score">★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">WHOOP 5.0 本地健康数据分析原型</div>
+      
+      <ul class="repo-features">
+        
+        <li>连接 WHOOP 5.0 手环抓取数据</li>
+        
+        <li>通过 Rust 核心解析为健康指标</li>
+        
+        <li>展示睡眠、压力、恢复等视图</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 探索 WHOOP 设备本地化数据处理的可能性，开源但远未成熟。
+      </div>
+      
+      
+      <div class="repo-audience">👤 健康数据开发者</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">4</div>
+        <a href="https://github.com/asz798838958/aBaiAutoplus" class="repo-name">asz798838958/aBaiAutoplus</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">Python</span>
+        <span class="tag star">⭐ 1403</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">多平台AI账号自动化注册与Plus开通工具</div>
+      
+      <ul class="repo-features">
+        
+        <li>支持ChatGPT Plus协议化付款一键开通</li>
+        
+        <li>插件化框架可扩展多平台注册</li>
+        
+        <li>浏览器与协议双模式运行</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 解决AI账号注册和付费流程繁琐的痛点，提供高效自动化方案
+      </div>
+      
+      
+      <div class="repo-audience">👤 AI工具频繁使用者</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">5</div>
+        <a href="https://github.com/Sophomoresty/gemini-web2api" class="repo-name">Sophomoresty/gemini-web2api</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">Python</span>
+        <span class="tag star">⭐ 1353</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">将Gemini网页转为OpenAI兼容API</div>
+      
+      <ul class="repo-features">
+        
+        <li>零成本转换，无需认证即可使用</li>
+        
+        <li>支持流式传输、工具调用和多种模型</li>
+        
+        <li>单文件部署，跨平台运行</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 免费解锁Gemini网页版能力，无缝替代OpenAI API，降低AI开发门槛
+      </div>
+      
+      
+      <div class="repo-audience">👤 AI开发者</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">6</div>
+        <a href="https://github.com/zgwl/chinese-buy-us-stock-guide" class="repo-name">zgwl/chinese-buy-us-stock-guide</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">Unknown</span>
+        <span class="tag star">⭐ 1222</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">中国人投资美股的全流程指南</div>
+      
+      <ul class="repo-features">
+        
+        <li>从开户到出金的完整流程解析</li>
+        
+        <li>税务、合规风险详细说明</li>
+        
+        <li>传统银行与加密入金两种路径</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 填补了大陆投资者在美股合规、税务和资金流动上的信息空白，实用性强
+      </div>
+      
+      
+      <div class="repo-audience">👤 想投资美股的大陆投资者</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">7</div>
+        <a href="https://github.com/MatinSenPai/SenPaiScanner" class="repo-name">MatinSenPai/SenPaiScanner</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">Go</span>
+        <span class="tag star">⭐ 1033</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">轻量级Cloudflare IP扫描器</div>
+      
+      <ul class="repo-features">
+        
+        <li>终端交互式菜单操作</li>
+        
+        <li>支持VLESS/Trojan配置</li>
+        
+        <li>自动筛选可用IP</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 针对网络不稳定场景设计，无需记忆命令，开箱即用解决代理IP失效问题
+      </div>
+      
+      
+      <div class="repo-audience">👤 代理工具用户</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">8</div>
+        <a href="https://github.com/cpaczek/skylight" class="repo-name">cpaczek/skylight</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">TypeScript</span>
+        <span class="tag star">⭐ 822</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">实时投影头顶飞机到天花板</div>
+      
+      <ul class="repo-features">
+        
+        <li>用RTL-SDR解码ADS-B信号，实时显示头顶飞机位置</li>
+        
+        <li>叠加真实天空层（日月星辰、ISS卫星），营造沉浸体验</li>
+        
+        <li>支持手机远程调参，可自定义坐标和跑道数据</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 将枯燥的航空数据变成可触摸的艺术装置，兼具实用与浪漫
+      </div>
+      
+      
+      <div class="repo-audience">👤 航空爱好者、创客</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">9</div>
+        <a href="https://github.com/Michaelliv/pi-dynamic-workflows" class="repo-name">Michaelliv/pi-dynamic-workflows</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">TypeScript</span>
+        <span class="tag star">⭐ 772</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">为Pi添加Claude风格的动态工作流</div>
+      
+      <ul class="repo-features">
+        
+        <li>支持JavaScript脚本编排多子智能体并行任务</li>
+        
+        <li>实时显示工作流进度并支持一键取消</li>
+        
+        <li>简单安装后即可在Pi中使用自然语言触发</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 将Claude Code的杀手级特性带到Pi，让复杂任务自动化更灵活高效
+      </div>
+      
+      
+      <div class="repo-audience">👤 Pi用户与AI开发者</div>
+      
+      
+    </div>
+    
+    <div class="repo-card">
+      <div class="repo-header">
+        <div class="repo-index">10</div>
+        <a href="https://github.com/ClaudioDrews/memory-os" class="repo-name">ClaudioDrews/memory-os</a>
+      </div>
+      <div class="repo-tags">
+        <span class="tag lang">Python</span>
+        <span class="tag star">⭐ 762</span>
+        
+        <span class="tag score">★★★★</span>
+        
+      </div>
+      
+      <div class="repo-desc">让AI代理永久记住你的项目决策</div>
+      
+      <ul class="repo-features">
+        
+        <li>七层持久化记忆系统，支持Qdrant向量检索</li>
+        
+        <li>自动结构化事实与信任评分</li>
+        
+        <li>本地运行，兼容任意LLM提供商</li>
+        
+      </ul>
+      
+      
+      <div class="repo-desc" style="font-size:13px; color:#444;">
+        💡 解决AI代理每次对话都失忆的痛点，无需云订阅，实现本地持久化上下文注入
+      </div>
+      
+      
+      <div class="repo-audience">👤 Hermes Agent重度用户</div>
+      
+      
+    </div>
+    
+  </div>
+
+  <div class="footer">
+    <p>本邮件由 AI 自动生成，每周一发送。</p>
+    <p>
+      如果您不想再收到此邮件，请
+      <a href="https://example.com/unsubscribe">点击这里取消订阅</a>。
+    </p>
+    <p style="margin-top:12px;">
+      &copy; 2026 GitHubTrending.cn — 用 AI 发现好项目
+    </p>
+  </div>
+</div>
+</body>
+</html>

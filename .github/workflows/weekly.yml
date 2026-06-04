@@ -1,0 +1,40 @@
+name: Build & Deploy Weekly Newsletter
+
+on:
+  schedule:
+    # Every Monday at 9:00 AM Beijing time (UTC+8) = 01:00 UTC
+    - cron: "0 1 * * 1"
+  workflow_dispatch:  # allow manual trigger
+
+# Sets permissions for GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate newsletter
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python main.py
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web
+          publish_branch: gh-pages
+          commit_message: "Publish issue ${{ github.run_number }}"

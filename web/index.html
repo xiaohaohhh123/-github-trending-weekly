@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Trending Weekly - AI 驱动的开源项目周报</title>
+  <meta name="description" content="每周一自动抓取 GitHub 热门项目，AI 生成中文点评。帮你发现值得关注的开源项目。">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1117; color: #c9d1d9; line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 80px 20px; text-align: center;
+    }
+    .hero h1 { font-size: 36px; color: #fff; margin-bottom: 12px; }
+    .hero p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; }
+    .hero .cta { margin-top: 24px; }
+    .hero .badge {
+      display: inline-block; background: rgba(255,255,255,0.15);
+      color: #fff; padding: 8px 20px; border-radius: 20px;
+      font-size: 14px; margin: 4px;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .section-title {
+      font-size: 22px; color: #58a6ff; margin-bottom: 20px;
+      border-bottom: 1px solid #21262d; padding-bottom: 10px;
+    }
+    .issue-card {
+      background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+      padding: 20px; margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .issue-card:hover { border-color: #58a6ff; }
+    .issue-card a { color: #58a6ff; text-decoration: none; font-size: 18px; font-weight: 600; }
+    .issue-card a:hover { text-decoration: underline; }
+    .issue-card .meta { font-size: 13px; color: #8b949e; margin-top: 6px; }
+    .issue-card .repos { font-size: 14px; color: #8b949e; margin-top: 8px; }
+    .rss-link {
+      display: inline-block; background: #f0883e; color: #fff;
+      padding: 6px 16px; border-radius: 6px; text-decoration: none; font-size: 14px;
+    }
+    .rss-link:hover { background: #e67a2f; }
+    .footer {
+      text-align: center; padding: 40px 20px;
+      color: #8b949e; font-size: 13px; border-top: 1px solid #21262d;
+    }
+    .footer a { color: #58a6ff; }
+  </style>
+</head>
+<body>
+<div class="hero">
+  <h1>GitHub Trending Weekly</h1>
+  <p>每周一自动抓取 GitHub 热门项目，DeepSeek AI 生成中文点评。<br>帮你发现值得关注的开源项目。</p>
+  <div class="cta">
+    <span class="badge">🤖 AI 驱动</span>
+    <span class="badge">📅 每周更新</span>
+    <span class="badge">🇨🇳 中文点评</span>
+    <span class="badge">🆓 完全免费</span>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="section-title">
+    往期周报
+    <a href="rss.xml" class="rss-link" style="float:right;">📡 RSS 订阅</a>
+  </h2>
+  <div id="issue-list">
+    <p style="color:#8b949e;">加载中...</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>由 <a href="https://github.com/xiaohaohhh123">xiaohaohhh123</a> 维护 ·
+  <a href="https://github.com/xiaohaohhh123/github-trending-weekly">GitHub 仓库</a> ·
+  <a href="rss.xml">RSS 订阅</a></p>
+  <p style="margin-top:8px;">Powered by DeepSeek AI + GitHub Actions</p>
+</div>
+
+<script>
+// Simple dynamic issue list loader
+fetch('issues/manifest.json')
+  .then(r => r.json())
+  .then(issues => {
+    const list = document.getElementById('issue-list');
+    if (!issues.length) {
+      list.innerHTML = '<p style="color:#8b949e;">暂无内容，敬请期待第一期！</p>';
+      return;
+    }
+    list.innerHTML = issues.reverse().map(i => `
+      <div class="issue-card">
+        <a href="issues/issue-${String(i.issue).padStart(4,'0')}.html">${i.title}</a>
+        <div class="meta">第 ${i.issue} 期 · ${i.date} · ${i.repo_count} 个项目</div>
+        <div class="repos">${(i.repos||[]).slice(0,5).map(r => r.full_name).join(' · ')}</div>
+      </div>
+    `).join('');
+  });
+</script>
+</body>
+</html>
