@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub Trending Weekly - AI 驱动的开源项目周报</title>
-  <meta name="description" content="每周一自动抓取 GitHub 热门项目，AI 生成中文点评。帮你发现值得关注的开源项目。">
+  <title>开源搞钱周刊 — 不只发现项目，更教会你怎么赚钱</title>
+  <meta name="description" content="每周一 AI 分析 GitHub 热门开源项目，拆解商业模式，手把手教你部署变现。独立开发者搞副业的第一选择。">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -12,35 +12,51 @@
       background: #0d1117; color: #c9d1d9; line-height: 1.6;
     }
     .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 80px 20px; text-align: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 100px 20px; text-align: center; position: relative; overflow: hidden;
     }
-    .hero h1 { font-size: 36px; color: #fff; margin-bottom: 12px; }
-    .hero p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; }
-    .hero .cta { margin-top: 24px; }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(240,136,62,0.1) 0%, transparent 50%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 { font-size: 42px; color: #fff; margin-bottom: 16px; }
+    .hero h1 span { color: #f0883e; }
+    .hero p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 24px; }
+    .hero .cta { margin-top: 28px; }
     .hero .badge {
-      display: inline-block; background: rgba(255,255,255,0.15);
-      color: #fff; padding: 8px 20px; border-radius: 20px;
-      font-size: 14px; margin: 4px;
+      display: inline-block; background: rgba(255,255,255,0.08);
+      color: #fff; padding: 10px 24px; border-radius: 24px;
+      font-size: 14px; margin: 4px; border: 1px solid rgba(255,255,255,0.1);
     }
+    .hero .badge.highlight { background: #f0883e; border-color: #f0883e; }
     .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
     .section-title {
-      font-size: 22px; color: #58a6ff; margin-bottom: 20px;
+      font-size: 22px; color: #f0883e; margin-bottom: 20px;
       border-bottom: 1px solid #21262d; padding-bottom: 10px;
     }
+    .value-props { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 30px 0; }
+    .prop {
+      background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+      padding: 24px; text-align: center;
+    }
+    .prop .icon { font-size: 32px; margin-bottom: 10px; }
+    .prop h3 { font-size: 16px; color: #e6edf3; margin-bottom: 6px; }
+    .prop p { font-size: 13px; color: #8b949e; }
     .issue-card {
       background: #161b22; border: 1px solid #30363d; border-radius: 10px;
-      padding: 20px; margin-bottom: 16px;
+      padding: 20px; margin-bottom: 14px;
       transition: border-color 0.2s;
     }
-    .issue-card:hover { border-color: #58a6ff; }
+    .issue-card:hover { border-color: #f0883e; }
     .issue-card a { color: #58a6ff; text-decoration: none; font-size: 18px; font-weight: 600; }
     .issue-card a:hover { text-decoration: underline; }
     .issue-card .meta { font-size: 13px; color: #8b949e; margin-top: 6px; }
-    .issue-card .repos { font-size: 14px; color: #8b949e; margin-top: 8px; }
     .rss-link {
       display: inline-block; background: #f0883e; color: #fff;
-      padding: 6px 16px; border-radius: 6px; text-decoration: none; font-size: 14px;
+      padding: 6px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; float: right;
     }
     .rss-link:hover { background: #e67a2f; }
     .footer {
@@ -52,20 +68,40 @@
 </head>
 <body>
 <div class="hero">
-  <h1>GitHub Trending Weekly</h1>
-  <p>每周一自动抓取 GitHub 热门项目，DeepSeek AI 生成中文点评。<br>帮你发现值得关注的开源项目。</p>
-  <div class="cta">
-    <span class="badge">🤖 AI 驱动</span>
-    <span class="badge">📅 每周更新</span>
-    <span class="badge">🇨🇳 中文点评</span>
-    <span class="badge">🆓 完全免费</span>
+  <div class="hero-content">
+    <h1>开源<span>搞钱</span>周刊</h1>
+    <p>不只告诉你什么项目🔥了<br>更教你怎么用这些项目<strong style="color:#f0883e;">赚钱</strong></p>
+    <div class="cta">
+      <span class="badge">💰 商业模式拆解</span>
+      <span class="badge">🔧 手把手部署</span>
+      <span class="badge">📊 收入潜力评估</span>
+      <span class="badge highlight">🤖 AI + 人工精编</span>
+    </div>
   </div>
 </div>
 
 <div class="container">
+  <div class="value-props">
+    <div class="prop">
+      <div class="icon">🎯</div>
+      <h3>只选能赚钱的</h3>
+      <p>从每周 100+ 热门项目中精选 3-5 个有变现潜力的</p>
+    </div>
+    <div class="prop">
+      <div class="icon">📖</div>
+      <h3>商业分析</h3>
+      <p>拆解每个项目的商业模式，给赚钱力打分</p>
+    </div>
+    <div class="prop">
+      <div class="icon">🚀</div>
+      <h3>可操作</h3>
+      <p>每期附带部署指南和「本周行动清单」</p>
+    </div>
+  </div>
+
   <h2 class="section-title">
-    往期周报
-    <a href="rss.xml" class="rss-link" style="float:right;">📡 RSS 订阅</a>
+    往期周刊
+    <a href="rss.xml" class="rss-link">📡 RSS 订阅</a>
   </h2>
   <div id="issue-list">
     <p style="color:#8b949e;">加载中...</p>
@@ -74,26 +110,24 @@
 
 <div class="footer">
   <p>由 <a href="https://github.com/xiaohaohhh123">xiaohaohhh123</a> 维护 ·
-  <a href="https://github.com/xiaohaohhh123/github-trending-weekly">GitHub 仓库</a> ·
+  <a href="https://github.com/xiaohaohhh123/-github-trending-weekly">GitHub 仓库</a> ·
   <a href="rss.xml">RSS 订阅</a></p>
-  <p style="margin-top:8px;">Powered by DeepSeek AI + GitHub Actions</p>
+  <p style="margin-top:8px;">Powered by DeepSeek AI + GitHub Actions · 零成本 · 每周一更新</p>
 </div>
 
 <script>
-// Simple dynamic issue list loader
 fetch('issues/manifest.json')
   .then(r => r.json())
   .then(issues => {
     const list = document.getElementById('issue-list');
     if (!issues.length) {
-      list.innerHTML = '<p style="color:#8b949e;">暂无内容，敬请期待第一期！</p>';
+      list.innerHTML = '<p style="color:#8b949e;">第一期正在生成中，周一见！</p>';
       return;
     }
     list.innerHTML = issues.reverse().map(i => `
       <div class="issue-card">
         <a href="issues/issue-${String(i.issue).padStart(4,'0')}.html">${i.title}</a>
         <div class="meta">第 ${i.issue} 期 · ${i.date} · ${i.repo_count} 个项目</div>
-        <div class="repos">${(i.repos||[]).slice(0,5).map(r => r.full_name).join(' · ')}</div>
       </div>
     `).join('');
   });

@@ -6,131 +6,165 @@
   <title>{{ title }}</title>
   <style>
     body {
-      margin: 0; padding: 0;
-      background-color: #f5f5f5;
+      margin: 0; padding: 0; background: #0d1117;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      color: #333;
+      color: #c9d1d9; line-height: 1.7;
     }
-    .container {
-      max-width: 640px; margin: 0 auto;
-      background: #fff; border-radius: 12px;
-      overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 16px 40px; }
     .header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff; padding: 32px 28px; text-align: center;
+      background: linear-gradient(135deg, #f0883e 0%, #e63946 100%);
+      color: #fff; padding: 40px 28px; text-align: center; border-radius: 0 0 16px 16px;
     }
-    .header h1 { margin: 0 0 8px; font-size: 24px; }
-    .header .date { font-size: 14px; opacity: 0.85; }
+    .header .tag { font-size: 12px; letter-spacing: 2px; opacity: 0.85; text-transform: uppercase; }
+    .header h1 { margin: 8px 0; font-size: 26px; }
+    .header .meta { font-size: 13px; opacity: 0.8; margin-top: 8px; }
     .intro {
-      padding: 24px 28px; font-size: 15px; line-height: 1.7;
-      color: #555; border-bottom: 1px solid #eee;
+      background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+      padding: 20px 24px; margin: 24px 0; font-size: 15px;
     }
-    .repo-list { padding: 16px 28px 24px; }
-    .repo-card {
-      border: 1px solid #e8e8e8; border-radius: 10px;
-      padding: 20px; margin-bottom: 16px;
-      transition: box-shadow 0.2s;
+    .intro .emoji { font-size: 24px; display: block; margin-bottom: 6px; }
+    .project-card {
+      background: #161b22; border: 1px solid #30363d; border-radius: 12px;
+      padding: 24px; margin-bottom: 20px;
     }
-    .repo-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .repo-header {
-      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    .project-card.featured { border-color: #f0883e; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .card-header a { color: #58a6ff; text-decoration: none; font-size: 20px; font-weight: 700; }
+    .card-header a:hover { text-decoration: underline; }
+    .money-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;
     }
-    .repo-index {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: #667eea; color: #fff; font-size: 13px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+    .money-badge.high { background: #238636; color: #fff; }
+    .money-badge.mid { background: #d29922; color: #fff; }
+    .money-badge.low { background: #30363d; color: #8b949e; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+    .tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; border: 1px solid #30363d; color: #8b949e; }
+    .section { margin: 14px 0; }
+    .section-title {
+      font-size: 14px; font-weight: 700; color: #f0883e;
+      margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
     }
-    .repo-name {
-      font-size: 17px; font-weight: 700; color: #1a1a1a;
-      text-decoration: none;
+    .section-content { font-size: 14px; color: #8b949e; }
+    .steps { padding-left: 18px; }
+    .steps li { margin: 4px 0; font-size: 13px; color: #c9d1d9; }
+    .steps li code {
+      background: #0d1117; border: 1px solid #30363d; border-radius: 4px;
+      padding: 1px 6px; font-size: 12px; color: #79c0ff;
     }
-    .repo-name:hover { color: #667eea; text-decoration: underline; }
-    .repo-tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
-    .tag {
-      font-size: 11px; padding: 2px 8px; border-radius: 10px;
-      background: #f0f0f0; color: #666;
+    .revenue-box {
+      background: linear-gradient(135deg, #1a2028 0%, #161b22 100%);
+      border: 1px solid #30363d; border-radius: 8px; padding: 14px 18px;
+      margin: 12px 0;
     }
-    .tag.lang { background: #e8f0fe; color: #1967d2; }
-    .tag.star { background: #fff3e0; color: #e65100; }
-    .tag.score { background: #e8f5e9; color: #2e7d32; }
-    .repo-desc { font-size: 14px; color: #555; line-height: 1.6; margin: 8px 0; }
-    .repo-features {
-      font-size: 13px; color: #666; padding-left: 18px; margin: 6px 0;
-    }
-    .repo-features li { margin: 4px 0; }
-    .repo-audience {
-      font-size: 12px; color: #999; margin-top: 6px;
-      font-style: italic;
-    }
+    .revenue-box .number { font-size: 28px; font-weight: 800; color: #f0883e; }
+    .revenue-box .label { font-size: 12px; color: #8b949e; }
+    .action-box { background: #1a2028; border-left: 3px solid #f0883e; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+    .action-box li { font-size: 13px; color: #c9d1d9; margin: 4px 0; }
     .footer {
-      background: #fafafa; padding: 24px 28px;
-      text-align: center; font-size: 12px; color: #999;
-      border-top: 1px solid #eee;
+      text-align: center; padding: 32px 20px; color: #8b949e; font-size: 12px;
+      border-top: 1px solid #21262d; margin-top: 30px;
     }
-    .footer a { color: #667eea; text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
+    .footer a { color: #58a6ff; }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h1>{{ title }}</h1>
-    <div class="date">{{ week_label }} &middot; 第 {{ issue_number }} 期</div>
-  </div>
+<div class="header">
+  <div class="tag">开源搞钱周刊</div>
+  <h1>{{ title }}</h1>
+  <div class="meta">第 {{ issue_number }} 期 · {{ week_label }}</div>
+</div>
 
+<div class="container">
   {% if intro %}
-  <div class="intro">{{ intro }}</div>
+  <div class="intro">
+    <span class="emoji">💰</span>
+    {{ intro }}
+  </div>
   {% endif %}
 
-  <div class="repo-list">
-    {% for repo in repos %}
-    <div class="repo-card">
-      <div class="repo-header">
-        <div class="repo-index">{{ loop.index }}</div>
-        <a href="{{ repo.html_url }}" class="repo-name">{{ repo.full_name }}</a>
+  {% for repo in repos %}
+  <div class="project-card {% if repo.analysis and repo.analysis.money_score >= 4 %}featured{% endif %}">
+    <div class="card-header">
+      <div>
+        <a href="{{ repo.html_url }}">{{ repo.full_name }}</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">{{ repo.language }}</span>
+          <span class="tag">⭐ {{ repo.stargazers_count }}</span>
+          {% if repo.analysis and repo.analysis.deploy_difficulty %}
+          <span class="tag">部署: {{ repo.analysis.deploy_difficulty }}</span>
+          {% endif %}
+        </div>
       </div>
-      <div class="repo-tags">
-        <span class="tag lang">{{ repo.language }}</span>
-        <span class="tag star">⭐ {{ repo.stargazers_count }}</span>
-        {% if repo.summary and repo.summary.score %}
-        <span class="tag score">{{ '★' * repo.summary.score }}</span>
-        {% endif %}
+      {% if repo.analysis and repo.analysis.money_score %}
+      <div class="money-badge {% if repo.analysis.money_score >= 4 %}high{% elif repo.analysis.money_score >= 3 %}mid{% else %}low{% endif %}">
+        💰 {{ repo.analysis.money_score }}/5 赚钱力
       </div>
-      {% if repo.summary %}
-      <div class="repo-desc">{{ repo.summary.one_liner }}</div>
-      {% if repo.summary.features %}
-      <ul class="repo-features">
-        {% for feat in repo.summary.features %}
-        <li>{{ feat }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-      {% if repo.summary.why_matters %}
-      <div class="repo-desc" style="font-size:13px; color:#444;">
-        💡 {{ repo.summary.why_matters }}
-      </div>
-      {% endif %}
-      {% if repo.summary.audience %}
-      <div class="repo-audience">👤 {{ repo.summary.audience }}</div>
-      {% endif %}
-      {% else %}
-      <div class="repo-desc">{{ repo.description }}</div>
       {% endif %}
     </div>
-    {% endfor %}
+
+    {% if repo.analysis %}
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">{{ repo.analysis.one_liner }}</div>
+
+    <!-- 赚钱模式 -->
+    {% if repo.analysis.business_model %}
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">{{ repo.analysis.business_model }}</div>
+      {% if repo.analysis.money_score_reason %}
+      <div class="section-content" style="font-size:12px; color:#6e7681;">{{ repo.analysis.money_score_reason }}</div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- 收入预估 -->
+    {% if repo.analysis.revenue_estimate %}
+    <div class="revenue-box">
+      <div class="number">{{ repo.analysis.revenue_estimate }}</div>
+      <div class="label">月收入潜力</div>
+      {% if repo.analysis.revenue_example %}
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 {{ repo.analysis.revenue_example }}</div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- 部署步骤 -->
+    {% if repo.analysis.deploy_steps %}
+    <div class="section">
+      <div class="section-title">🔧 {{ repo.analysis.deploy_difficulty or '' }}部署指南</div>
+      <ol class="steps">
+        {% for step in repo.analysis.deploy_steps %}
+        <li>{{ step }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+    {% endif %}
+
+    <!-- 本周行动 -->
+    {% if repo.analysis.action_items %}
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        {% for item in repo.analysis.action_items %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+    {% endif %}
+
+    {% else %}
+    <div class="section-content">{{ repo.description }}</div>
+    {% endif %}
   </div>
+  {% endfor %}
 
   <div class="footer">
-    <p>本邮件由 AI 自动生成，每周一发送。</p>
-    <p>
-      如果您不想再收到此邮件，请
-      <a href="{{ unsubscribe_url }}">点击这里取消订阅</a>。
-    </p>
-    <p style="margin-top:12px;">
-      &copy; {{ year }} GitHubTrending.cn — 用 AI 发现好项目
-    </p>
+    <p>💌 本刊由 AI 自动生成，每周一更新。</p>
+    <p>由 <a href="https://github.com/xiaohaohhh123">xiaohaohhh123</a> 维护 ·
+    <a href="{{ site_url }}">在线阅读</a> ·
+    <a href="{{ site_url }}/rss.xml">RSS 订阅</a></p>
+    <p style="margin-top:12px; color:#484f58;">Powered by DeepSeek AI + GitHub Actions · 零成本运营</p>
   </div>
 </div>
 </body>

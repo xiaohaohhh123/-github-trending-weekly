@@ -56,5 +56,43 @@
         "score": 4
       }
     ]
+  },
+  {
+    "issue": 2,
+    "title": "开源工具周赚榜：5个项目助你变现",
+    "date": "2026-06-04",
+    "repo_count": 5,
+    "repos": [
+      {
+        "full_name": "asz798838958/aBaiAutoplus",
+        "stargazers_count": 1405,
+        "money_score": 4,
+        "revenue_estimate": "5000-30000元/月"
+      },
+      {
+        "full_name": "Sophomoresty/gemini-web2api",
+        "stargazers_count": 1353,
+        "money_score": 4,
+        "revenue_estimate": "5000-30000元/月"
+      },
+      {
+        "full_name": "MatinSenPai/SenPaiScanner",
+        "stargazers_count": 1037,
+        "money_score": 3,
+        "revenue_estimate": "月收入0-2000元（个人卖服务），或0元（开源免费）"
+      },
+      {
+        "full_name": "pewdiepie-archdaemon/odysseus",
+        "stargazers_count": 44430,
+        "money_score": 4,
+        "revenue_estimate": "5000-50000元/月"
+      },
+      {
+        "full_name": "Gloridust/WechatOnCloud",
+        "stargazers_count": 1959,
+        "money_score": 3,
+        "revenue_estimate": "5000-20000元/月"
+      }
+    ]
   }
 ]
