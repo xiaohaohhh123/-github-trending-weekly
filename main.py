@@ -27,10 +27,10 @@ from builder.rss_feed import generate_rss
 
 
 PROJECT_ROOT = os.path.dirname(__file__)
-WEB_DIR = os.path.join(PROJECT_ROOT, "web")
-ISSUES_DIR = os.path.join(WEB_DIR, "issues")
+DOCS_DIR = os.path.join(PROJECT_ROOT, "docs")
+ISSUES_DIR = os.path.join(DOCS_DIR, "issues")
 MANIFEST_PATH = os.path.join(ISSUES_DIR, "manifest.json")
-RSS_PATH = os.path.join(WEB_DIR, "rss.xml")
+RSS_PATH = os.path.join(DOCS_DIR, "rss.xml")
 
 # Also archive to data/ for git history
 DATA_DIR = os.path.join(PROJECT_ROOT, "data", "issues")
@@ -136,7 +136,7 @@ def main():
     print("\n" + "=" * 60)
     print(f"  Done! Issue #{issue_number} published")
     print(f"  Web: {web_path}")
-    print(f"  Site: https://xiaohaohhh123.github.io/github-trending-weekly")
+    print(f"  Web: https://xiaohaohhh123.github.io/-github-trending-weekly")
     print("=" * 60)
 
 

@@ -35,6 +35,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web
+          publish_dir: ./docs
           publish_branch: gh-pages
           commit_message: "Publish issue ${{ github.run_number }}"
