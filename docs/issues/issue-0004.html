@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本周5个开源项目，直接教你赚钱</title>
+  <meta name="description" content="这期有硬货！重点看两个：**odysseus** 自托管AI工作台，直接替代ChatGPT，省月费还能自己掌控数据；**WechatOnCloud** 服务端微信，多端共享会话，副业做客服神器。其他几个AI工具也够狠，别错过。">
+  <meta property="og:title" content="本周5个开源项目，直接教你赚钱">
+  <meta property="og:description" content="这期有硬货！重点看两个：**odysseus** 自托管AI工作台，直接替代ChatGPT，省月费还能自己掌控数据；**WechatOnCloud** 服务端微信，多端共享会话，副业做客服神器。其他几个AI工具也够狠，别错过。">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="开源搞钱周刊">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="本周5个开源项目，直接教你赚钱">
+  <meta name="twitter:description" content="这期有硬货！重点看两个：**odysseus** 自托管AI工作台，直接替代ChatGPT，省月费还能自己掌控数据；**WechatOnCloud** 服务端微信，多端共享会话，副业做客服神器。其他几个AI工具也够狠，别错过。">
+  <style>
+    body {
+      margin: 0; padding: 0; background: #0d1117;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #c9d1d9; line-height: 1.7;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 16px 40px; }
+    .header {
+      background: linear-gradient(135deg, #f0883e 0%, #e63946 100%);
+      color: #fff; padding: 40px 28px; text-align: center; border-radius: 0 0 16px 16px;
+    }
+    .header .tag { font-size: 12px; letter-spacing: 2px; opacity: 0.85; text-transform: uppercase; }
+    .header h1 { margin: 8px 0; font-size: 26px; }
+    .header .meta { font-size: 13px; opacity: 0.8; margin-top: 8px; }
+    .intro {
+      background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+      padding: 20px 24px; margin: 24px 0; font-size: 15px;
+    }
+    .intro .emoji { font-size: 24px; display: block; margin-bottom: 6px; }
+    .project-card {
+      background: #161b22; border: 1px solid #30363d; border-radius: 12px;
+      padding: 24px; margin-bottom: 20px;
+    }
+    .project-card.featured { border-color: #f0883e; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .card-header a { color: #58a6ff; text-decoration: none; font-size: 20px; font-weight: 700; }
+    .card-header a:hover { text-decoration: underline; }
+    .money-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;
+    }
+    .money-badge.high { background: #238636; color: #fff; }
+    .money-badge.mid { background: #d29922; color: #fff; }
+    .money-badge.low { background: #30363d; color: #8b949e; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+    .tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; border: 1px solid #30363d; color: #8b949e; }
+    .section { margin: 14px 0; }
+    .section-title {
+      font-size: 14px; font-weight: 700; color: #f0883e;
+      margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+    }
+    .section-content { font-size: 14px; color: #8b949e; }
+    .steps { padding-left: 18px; }
+    .steps li { margin: 4px 0; font-size: 13px; color: #c9d1d9; }
+    .steps li code {
+      background: #0d1117; border: 1px solid #30363d; border-radius: 4px;
+      padding: 1px 6px; font-size: 12px; color: #79c0ff;
+    }
+    .revenue-box {
+      background: linear-gradient(135deg, #1a2028 0%, #161b22 100%);
+      border: 1px solid #30363d; border-radius: 8px; padding: 14px 18px;
+      margin: 12px 0;
+    }
+    .revenue-box .number { font-size: 28px; font-weight: 800; color: #f0883e; }
+    .revenue-box .label { font-size: 12px; color: #8b949e; }
+    .action-box { background: #1a2028; border-left: 3px solid #f0883e; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+    .action-box li { font-size: 13px; color: #c9d1d9; margin: 4px 0; }
+    .footer {
+      text-align: center; padding: 32px 20px; color: #8b949e; font-size: 12px;
+      border-top: 1px solid #21262d; margin-top: 30px;
+    }
+    .footer a { color: #58a6ff; }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="tag">开源搞钱周刊</div>
+  <h1>本周5个开源项目，直接教你赚钱</h1>
+  <div class="meta">第 4 期 · 2026.06.01 - 2026.06.07</div>
+</div>
+
+<div class="container">
+  
+  <div class="intro">
+    <span class="emoji">💰</span>
+    这期有硬货！重点看两个：**odysseus** 自托管AI工作台，直接替代ChatGPT，省月费还能自己掌控数据；**WechatOnCloud** 服务端微信，多端共享会话，副业做客服神器。其他几个AI工具也够狠，别错过。
+  </div>
+  
+
+  
+  <div class="project-card featured">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/pewdiepie-archdaemon/odysseus">pewdiepie-archdaemon/odysseus</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">JavaScript</span>
+          <span class="tag">⭐ 44553</span>
+          
+          <span class="tag">部署: 中等</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge high">
+        💰 4/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">自托管AI工作台，替代ChatGPT</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">提供托管服务（月费+按需），卖企业定制版、模型调优服务，或做私有化部署咨询</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">直接对标付费AI工具，省成本+可定制，变现路径清晰</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">20000-100000元/月</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 类似项目Open WebUI（自托管AI聊天）有数千付费用户，月收入约5万美元</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 中等部署指南</div>
+      <ol class="steps">
+        
+        <li>克隆仓库: git clone https://github.com/pewdiepie-archdaemon/odysseus.git</li>
+        
+        <li>安装依赖: cd odysseus && npm install</li>
+        
+        <li>配置环境变量（API密钥、模型路径），运行: npm start</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>部署本地实例，测试所有功能模块</li>
+        
+        <li>注册域名+服务器，搭建公开托管版本</li>
+        
+        <li>在开发者社区发帖推广，前10个用户免费试用</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="project-card featured">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/Gloridust/WechatOnCloud">Gloridust/WechatOnCloud</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">TypeScript</span>
+          <span class="tag">⭐ 1965</span>
+          
+          <span class="tag">部署: 中等</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge high">
+        💰 4/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">服务端微信，多端共享会话</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">提供托管服务：按实例/月收费（如99元/实例），或卖NAS一键部署镜像。也可卖企业版（多用户管理、日志审计）。</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">企业/团队有刚需，但需合规风险</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">月收入5000-30000元（取决于客户量）</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 类似项目如WeChatFerry，有人做企业客服系统月入2万+</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 中等部署指南</div>
+      <ol class="steps">
+        
+        <li>准备一台Linux服务器或NAS，安装Docker和Docker Compose</li>
+        
+        <li>克隆项目仓库：git clone https://github.com/Gloridust/WechatOnCloud.git</li>
+        
+        <li>编辑docker-compose.yml配置端口、数据目录，运行docker-compose up -d启动服务</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>部署体验项目，测试多实例管理和稳定性</li>
+        
+        <li>调研企业微信客服、团队协作场景的付费意愿</li>
+        
+        <li>写一篇《NAS上跑微信服务端，团队协作新方案》的推广文章</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="project-card featured">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/asz798838958/aBaiAutoplus">asz798838958/aBaiAutoplus</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">Python</span>
+          <span class="tag">⭐ 1409</span>
+          
+          <span class="tag">部署: 中等</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge high">
+        💰 4/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">AI账号自动注册与ChatGPT Plus开通工具</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">提供付费代注册/代开通服务，或打包成SaaS平台按月收费，也可卖账号或培训教程</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">直接解决ChatGPT Plus付费痛点，变现路径清晰</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">5000-50000元/月</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 有人在闲鱼卖ChatGPT Plus代开通，单次50-100元，月接500单赚2.5万</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 中等部署指南</div>
+      <ol class="steps">
+        
+        <li>1. 克隆仓库并安装Python依赖：pip install -r requirements.txt</li>
+        
+        <li>2. 配置GoPay/PayPal API密钥和代理环境</li>
+        
+        <li>3. 启动Web UI或桌面客户端，测试注册和开通流程</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>本周部署并测试PayPal和GoPay注册流程</li>
+        
+        <li>在闲鱼/淘宝发布代开通服务，定价50-80元/次</li>
+        
+        <li>研究上游项目更新，确保插件兼容性</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="project-card featured">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/Sophomoresty/gemini-web2api">Sophomoresty/gemini-web2api</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">Python</span>
+          <span class="tag">⭐ 1355</span>
+          
+          <span class="tag">部署: 简单</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge high">
+        💰 4/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">Gemini网页转API代理</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">提供免费开源版本引流，收费托管服务或企业定制版。核心卖点：无需Google API Key，零成本调用Gemini模型。</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">零成本套壳OpenAI兼容API，需求明确</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">5000-30000元/月</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 在V2EX发帖推广，按50元/月收费提供API代理服务，100个用户月入5000元</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 简单部署指南</div>
+      <ol class="steps">
+        
+        <li>1. 服务器安装Python3.8+和pip</li>
+        
+        <li>2. 运行 pip install httpx 安装依赖</li>
+        
+        <li>3. 上传 gemini_web2api.py 到服务器，启动服务（python gemini_web2api.py）</li>
+        
+        <li>4. 配置Nginx反向代理和HTTPS（可选，推荐用于生产环境）</li>
+        
+        <li>5. 修改 config.json 设置 api_keys 和端口</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>本周搭建自己的代理服务并测试稳定性</li>
+        
+        <li>在技术社区（V2EX、掘金）发帖推广，收集前10个付费用户</li>
+        
+        <li>写一篇对比教程：对比官方API和本项目的成本差异</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="project-card ">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/MatinSenPai/SenPaiScanner">MatinSenPai/SenPaiScanner</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">Go</span>
+          <span class="tag">⭐ 1037</span>
+          
+          <span class="tag">部署: 简单</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge low">
+        💰 2/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">Cloudflare IP扫描器</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">免费开源，靠赞助或付费支持。可包装成付费服务，但用户量小，难规模化。</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">工具小众，用户少，变现难</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">0-1000元/月</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 类似项目如CloudflareScanner，作者靠赞助月入几百元。</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 简单部署指南</div>
+      <ol class="steps">
+        
+        <li>1. 下载对应平台的Release二进制文件</li>
+        
+        <li>2. 赋予执行权限：chmod +x senpaiscanner</li>
+        
+        <li>3. 运行：./senpaiscanner，按界面提示操作</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>1. 搭建一个在线版本，提供付费API调用</li>
+        
+        <li>2. 写一篇教程引流到个人博客</li>
+        
+        <li>3. 在GitHub上开启赞助按钮</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+
+  <div class="footer">
+    <p>💌 本刊由 AI 自动生成，每周一更新。</p>
+    <p>由 <a href="https://github.com/xiaohaohhh123">xiaohaohhh123</a> 维护 ·
+    <a href="https://xiaohaohhh123.github.io/-github-trending-weekly">在线阅读</a> ·
+    <a href="https://xiaohaohhh123.github.io/-github-trending-weekly/rss.xml">RSS 订阅</a></p>
+    <p style="margin-top:12px; color:#484f58;">Powered by DeepSeek AI + GitHub Actions · 零成本运营</p>
+  </div>
+</div>
+</body>
+</html>

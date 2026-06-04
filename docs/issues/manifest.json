@@ -132,5 +132,43 @@
         "revenue_estimate": "月收入5000-20000元（面向中小团队或NAS用户群）"
       }
     ]
+  },
+  {
+    "issue": 4,
+    "title": "本周5个开源项目，直接教你赚钱",
+    "date": "2026-06-04",
+    "repo_count": 5,
+    "repos": [
+      {
+        "full_name": "pewdiepie-archdaemon/odysseus",
+        "stargazers_count": 44553,
+        "money_score": 4,
+        "revenue_estimate": "20000-100000元/月"
+      },
+      {
+        "full_name": "Gloridust/WechatOnCloud",
+        "stargazers_count": 1965,
+        "money_score": 4,
+        "revenue_estimate": "月收入5000-30000元（取决于客户量）"
+      },
+      {
+        "full_name": "asz798838958/aBaiAutoplus",
+        "stargazers_count": 1409,
+        "money_score": 4,
+        "revenue_estimate": "5000-50000元/月"
+      },
+      {
+        "full_name": "Sophomoresty/gemini-web2api",
+        "stargazers_count": 1355,
+        "money_score": 4,
+        "revenue_estimate": "5000-30000元/月"
+      },
+      {
+        "full_name": "MatinSenPai/SenPaiScanner",
+        "stargazers_count": 1037,
+        "money_score": 2,
+        "revenue_estimate": "0-1000元/月"
+      }
+    ]
   }
 ]

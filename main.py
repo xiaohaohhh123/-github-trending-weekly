@@ -21,6 +21,7 @@ from engine.summarizer import analyze_all, generate_intro, generate_title
 from builder.newsletter import build_newsletter
 from builder.rss_feed import generate_rss
 from builder.seo import generate_sitemap, generate_share_text
+from promoter.platforms import promote_all
 
 PROJECT_ROOT = os.path.dirname(__file__)
 DOCS_DIR = os.path.join(PROJECT_ROOT, "docs")
@@ -133,13 +134,22 @@ def main():
     print("\n" + "=" * 60)
     print(f"  Done! Issue #{issue_number} published")
     print(f"  Web: https://xiaohaohhh123.github.io/-github-trending-weekly")
-    print(f"  Share texts: {share_path}")
     print("=" * 60)
-    print("\n  --- 推广文案（可直接复制）---")
-    for platform, text in share_texts.items():
-        print(f"\n  [{platform.upper()}]")
-        print(text)
-        print()
+
+    # Step 6: Auto-promote to all configured platforms
+    print("\n[Promotion] Auto-posting to social platforms...")
+    promo_results = promote_all(MANIFEST_PATH)
+    for platform, info in promo_results.items():
+        status = "SENT" if info["posted"] else "SKIPPED (not configured)"
+        print(f"  [{platform}] {status}")
+        if not info["posted"]:
+            # Save copyable text for manual platforms
+            with open(os.path.join(DATA_DIR, f"share-{issue_number:04d}.md"), "a", encoding="utf-8") as f:
+                f.write(f"\n## {platform}\n\n```\n{info['text']}\n```\n")
+
+    print("\n  --- 手动平台推广文案已保存 ---")
+    print(f"  data/issues/share-{issue_number:04d}.md")
+    print()
 
 
 if __name__ == "__main__":
