@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xiaohaohhh123.github.io/-github-trending-weekly/sitemap.xml

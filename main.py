@@ -20,6 +20,7 @@ from scraper.github_trending import fetch_trending_weekly
 from engine.summarizer import analyze_all, generate_intro, generate_title
 from builder.newsletter import build_newsletter
 from builder.rss_feed import generate_rss
+from builder.seo import generate_sitemap, generate_share_text
 
 PROJECT_ROOT = os.path.dirname(__file__)
 DOCS_DIR = os.path.join(PROJECT_ROOT, "docs")
@@ -116,10 +117,29 @@ def main():
     })
     _save_manifest(manifest)
 
+    # Generate sitemap
+    sitemap = generate_sitemap(MANIFEST_PATH)
+    with open(os.path.join(DOCS_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write(sitemap)
+
+    # Generate share texts
+    share_texts = generate_share_text(MANIFEST_PATH)
+    share_path = os.path.join(DATA_DIR, f"share-{issue_number:04d}.md")
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(share_path, "w", encoding="utf-8") as f:
+        for platform, text in share_texts.items():
+            f.write(f"## {platform}\n\n```\n{text}\n```\n\n")
+
     print("\n" + "=" * 60)
     print(f"  Done! Issue #{issue_number} published")
     print(f"  Web: https://xiaohaohhh123.github.io/-github-trending-weekly")
+    print(f"  Share texts: {share_path}")
     print("=" * 60)
+    print("\n  --- 推广文案（可直接复制）---")
+    for platform, text in share_texts.items():
+        print(f"\n  [{platform.upper()}]")
+        print(text)
+        print()
 
 
 if __name__ == "__main__":
