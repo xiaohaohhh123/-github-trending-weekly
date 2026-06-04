@@ -1,4 +1,4 @@
-name: Build & Deploy Weekly Newsletter
+name: Generate Weekly Newsletter
 
 on:
   schedule:
@@ -6,11 +6,8 @@ on:
     - cron: "0 1 * * 1"
   workflow_dispatch:  # allow manual trigger
 
-# Sets permissions for GitHub Pages
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   build:
@@ -26,15 +23,15 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Generate newsletter
+      - name: Generate newsletter (scrape + AI analyze + build)
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python main.py
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          publish_branch: gh-pages
-          commit_message: "Publish issue ${{ github.run_number }}"
+      - name: Commit and push to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "Auto-publish issue $(date +'%Y-W%V')"
+          git push
