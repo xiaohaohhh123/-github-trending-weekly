@@ -170,5 +170,43 @@
         "revenue_estimate": "0-1000元/月"
       }
     ]
+  },
+  {
+    "issue": 5,
+    "title": "本周开源赚钱王炸：5个项目直接变现！",
+    "date": "2026-06-08",
+    "repo_count": 5,
+    "repos": [
+      {
+        "full_name": "b-nnett/goose",
+        "stargazers_count": 2265,
+        "money_score": 2,
+        "revenue_estimate": "0元（当前阶段）"
+      },
+      {
+        "full_name": "VAST-AI-Research/TripoSplat",
+        "stargazers_count": 533,
+        "money_score": 4,
+        "revenue_estimate": "个人开发者月收入5,000-30,000元"
+      },
+      {
+        "full_name": "tastyeffectco/sandboxd",
+        "stargazers_count": 500,
+        "money_score": 4,
+        "revenue_estimate": "5000-50000元/月"
+      },
+      {
+        "full_name": "tiantianGPU/reg-factory",
+        "stargazers_count": 480,
+        "money_score": 4,
+        "revenue_estimate": "5000-50000元/月"
+      },
+      {
+        "full_name": "Jane-xiaoer/xiaoer-videolab",
+        "stargazers_count": 471,
+        "money_score": 3,
+        "revenue_estimate": "2000-8000元/月"
+      }
+    ]
   }
 ]

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本周开源赚钱王炸：5个项目直接变现！</title>
+  <meta name="description" content="兄弟们，这期搞钱周刊全是实打实的干货！重点盯紧 **VAST-AI-Research/TripoSplat** 和 **tiantianGPU/reg-factory**——一个让你用一张图就能变现3D模型，另一个直接批量薅AI平台羊毛。别走神，看完这期你就能动手干。">
+  <meta property="og:title" content="本周开源赚钱王炸：5个项目直接变现！">
+  <meta property="og:description" content="兄弟们，这期搞钱周刊全是实打实的干货！重点盯紧 **VAST-AI-Research/TripoSplat** 和 **tiantianGPU/reg-factory**——一个让你用一张图就能变现3D模型，另一个直接批量薅AI平台羊毛。别走神，看完这期你就能动手干。">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="开源搞钱周刊">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="本周开源赚钱王炸：5个项目直接变现！">
+  <meta name="twitter:description" content="兄弟们，这期搞钱周刊全是实打实的干货！重点盯紧 **VAST-AI-Research/TripoSplat** 和 **tiantianGPU/reg-factory**——一个让你用一张图就能变现3D模型，另一个直接批量薅AI平台羊毛。别走神，看完这期你就能动手干。">
+  <style>
+    body {
+      margin: 0; padding: 0; background: #0d1117;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #c9d1d9; line-height: 1.7;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 16px 40px; }
+    .header {
+      background: linear-gradient(135deg, #f0883e 0%, #e63946 100%);
+      color: #fff; padding: 40px 28px; text-align: center; border-radius: 0 0 16px 16px;
+    }
+    .header .tag { font-size: 12px; letter-spacing: 2px; opacity: 0.85; text-transform: uppercase; }
+    .header h1 { margin: 8px 0; font-size: 26px; }
+    .header .meta { font-size: 13px; opacity: 0.8; margin-top: 8px; }
+    .intro {
+      background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+      padding: 20px 24px; margin: 24px 0; font-size: 15px;
+    }
+    .intro .emoji { font-size: 24px; display: block; margin-bottom: 6px; }
+    .project-card {
+      background: #161b22; border: 1px solid #30363d; border-radius: 12px;
+      padding: 24px; margin-bottom: 20px;
+    }
+    .project-card.featured { border-color: #f0883e; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .card-header a { color: #58a6ff; text-decoration: none; font-size: 20px; font-weight: 700; }
+    .card-header a:hover { text-decoration: underline; }
+    .money-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;
+    }
+    .money-badge.high { background: #238636; color: #fff; }
+    .money-badge.mid { background: #d29922; color: #fff; }
+    .money-badge.low { background: #30363d; color: #8b949e; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+    .tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; border: 1px solid #30363d; color: #8b949e; }
+    .section { margin: 14px 0; }
+    .section-title {
+      font-size: 14px; font-weight: 700; color: #f0883e;
+      margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+    }
+    .section-content { font-size: 14px; color: #8b949e; }
+    .steps { padding-left: 18px; }
+    .steps li { margin: 4px 0; font-size: 13px; color: #c9d1d9; }
+    .steps li code {
+      background: #0d1117; border: 1px solid #30363d; border-radius: 4px;
+      padding: 1px 6px; font-size: 12px; color: #79c0ff;
+    }
+    .revenue-box {
+      background: linear-gradient(135deg, #1a2028 0%, #161b22 100%);
+      border: 1px solid #30363d; border-radius: 8px; padding: 14px 18px;
+      margin: 12px 0;
+    }
+    .revenue-box .number { font-size: 28px; font-weight: 800; color: #f0883e; }
+    .revenue-box .label { font-size: 12px; color: #8b949e; }
+    .action-box { background: #1a2028; border-left: 3px solid #f0883e; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+    .action-box li { font-size: 13px; color: #c9d1d9; margin: 4px 0; }
+    .footer {
+      text-align: center; padding: 32px 20px; color: #8b949e; font-size: 12px;
+      border-top: 1px solid #21262d; margin-top: 30px;
+    }
+    .footer a { color: #58a6ff; }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="tag">开源搞钱周刊</div>
+  <h1>本周开源赚钱王炸：5个项目直接变现！</h1>
+  <div class="meta">第 5 期 · 2026.06.08 - 2026.06.14</div>
+</div>
+
+<div class="container">
+  
+  <div class="intro">
+    <span class="emoji">💰</span>
+    兄弟们，这期搞钱周刊全是实打实的干货！重点盯紧 **VAST-AI-Research/TripoSplat** 和 **tiantianGPU/reg-factory**——一个让你用一张图就能变现3D模型，另一个直接批量薅AI平台羊毛。别走神，看完这期你就能动手干。
+  </div>
+  
+
+  
+  <div class="project-card ">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/b-nnett/goose">b-nnett/goose</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">Rust</span>
+          <span class="tag">⭐ 2265</span>
+          
+          <span class="tag">部署: 困难</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge low">
+        💰 2/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">WHOOP 5.0 本地数据伴侣</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">暂无明确商业模式。潜在方向：付费App（健康数据可视化）、企业API服务（体育机构）、定制硬件调试工具。但当前代码未封装成可销售产品。</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">原型阶段，无付费场景，受众极窄</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">0元（当前阶段）</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 类似WHOOP官方App年订阅费约$30/月，但这是硬件+软件绑定，非纯软件。</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 困难部署指南</div>
+      <ol class="steps">
+        
+        <li>安装Xcode和Rust工具链</li>
+        
+        <li>克隆仓库并运行脚本构建Rust核心</li>
+        
+        <li>在Xcode中打开项目并编译到iOS设备</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>阅读README确认项目目标和当前限制</li>
+        
+        <li>尝试本地编译，评估技术门槛</li>
+        
+        <li>搜索WHOOP开发者社区，看是否有类似付费需求</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="project-card featured">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/VAST-AI-Research/TripoSplat">VAST-AI-Research/TripoSplat</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">Python</span>
+          <span class="tag">⭐ 533</span>
+          
+          <span class="tag">部署: 中等</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge high">
+        💰 4/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">单图转3D高斯的AI工具</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">提供API或SaaS服务，按生成次数收费；或集成到3D建模工具中，收授权费/订阅费。</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">3D资产生成需求大，直接服务游戏/VR行业</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">个人开发者月收入5,000-30,000元</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 类似Meshy.ai，提供单图转3D模型服务，月订阅$20-$100，已有数万用户。</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 中等部署指南</div>
+      <ol class="steps">
+        
+        <li>克隆仓库并安装依赖（Python 3.8+，CUDA）</li>
+        
+        <li>下载预训练模型权重</li>
+        
+        <li>运行推理脚本，输入图片生成3D高斯文件</li>
+        
+        <li>部署为Web API（如FastAPI），提供调用接口</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>在本地跑通TripoSplat，生成几个示例3D模型</li>
+        
+        <li>注册一个云服务器（如阿里云），部署API供测试</li>
+        
+        <li>在开发者论坛或游戏/VR社群发帖，接定制生成订单</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="project-card featured">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/tastyeffectco/sandboxd">tastyeffectco/sandboxd</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">Go</span>
+          <span class="tag">⭐ 500</span>
+          
+          <span class="tag">部署: 简单</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge high">
+        💰 4/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">自托管AI沙盒后端引擎</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">卖托管服务、企业私有部署授权、作为AI应用平台的底层引擎收费，或搭积木式卖沙盒实例</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">AI应用构建热潮下刚需，变现路径清晰</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">5000-50000元/月</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 类似Replit Teams按用户收费，或像Lovable/Bolt为AI建站工具提供后端，月费299-999元/团队</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 简单部署指南</div>
+      <ol class="steps">
+        
+        <li>1. 准备一台Linux服务器（至少4核8G，装好Docker和Go环境）</li>
+        
+        <li>2. 克隆仓库并编译或下载预编译二进制文件</li>
+        
+        <li>3. 运行 sandboxd start 启动控制平面，暴露API端口</li>
+        
+        <li>4. 配置域名和反向代理（如Nginx）以支持预览URL</li>
+        
+        <li>5. 集成到你的AI应用或通过REST API调用</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>1. 本周内部署到一台云服务器上，跑通一个AI agent写代码的demo</li>
+        
+        <li>2. 写一篇中文教程，发在掘金/知乎，引流到你的付费托管服务</li>
+        
+        <li>3. 联系做AI建站产品的团队，推销作为后端引擎的授权或集成</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="project-card featured">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/tiantianGPU/reg-factory">tiantianGPU/reg-factory</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">Python</span>
+          <span class="tag">⭐ 480</span>
+          
+          <span class="tag">部署: 中等</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge high">
+        💰 4/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">自动批量注册邮箱/AI平台</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">卖注册服务或账号成品。帮用户批量注册Outlook/Gmail，再注册ChatGPT等平台，按账号数量收费，或提供API接口让客户自动获取cookie。</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">直接解决批量账号需求，有明确付费场景</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">5000-50000元/月</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 某开发者卖ChatGPT注册账号，5元/个，靠自动化工具月销2000个，收入1万元。</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 中等部署指南</div>
+      <ol class="steps">
+        
+        <li>1. 在服务器上安装Python 3.8+和Chrome浏览器及对应驱动</li>
+        
+        <li>2. 克隆项目并安装依赖：pip install -r requirements.txt</li>
+        
+        <li>3. 配置代理和验证码服务（如2Captcha），运行主脚本开始注册</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>1. 本周部署项目，测试注册10个Outlook邮箱，记录成功率和耗时</li>
+        
+        <li>2. 在闲鱼或Telegram群发小广告，看是否有批量注册需求</li>
+        
+        <li>3. 整理一份定价方案：单账号注册价、批量折扣、API接口调用费</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="project-card ">
+    <div class="card-header">
+      <div>
+        <a href="https://github.com/Jane-xiaoer/xiaoer-videolab">Jane-xiaoer/xiaoer-videolab</a>
+        <div class="tags" style="margin-top:4px;">
+          <span class="tag">JavaScript</span>
+          <span class="tag">⭐ 471</span>
+          
+          <span class="tag">部署: 简单</span>
+          
+        </div>
+      </div>
+      
+      <div class="money-badge mid">
+        💰 3/5 赚钱力
+      </div>
+      
+    </div>
+
+    
+    <!-- 一句话 -->
+    <div class="section-content" style="margin-bottom:12px;">一键抓取网页视频到本地</div>
+
+    <!-- 赚钱模式 -->
+    
+    <div class="section">
+      <div class="section-title">💡 商业模式</div>
+      <div class="section-content">免费开源引流，可推付费增值：批量下载、云存储集成、企业定制版、技术支持服务</div>
+      
+      <div class="section-content" style="font-size:12px; color:#6e7681;">工具实用但免费替代多，付费意愿低</div>
+      
+    </div>
+    
+
+    <!-- 收入预估 -->
+    
+    <div class="revenue-box">
+      <div class="number">2000-8000元/月</div>
+      <div class="label">月收入潜力</div>
+      
+      <div class="section-content" style="font-size:12px; margin-top:6px;">📌 类似 Video DownloadHelper 扩展通过捐赠+高级功能年入$10k+</div>
+      
+    </div>
+    
+
+    <!-- 部署步骤 -->
+    
+    <div class="section">
+      <div class="section-title">🔧 简单部署指南</div>
+      <ol class="steps">
+        
+        <li>1. 安装 yt-dlp（brew install yt-dlp 或 pip install yt-dlp）</li>
+        
+        <li>2. 克隆仓库到本地：git clone https://github.com/Jane-xiaoer/xiaoer-videolab.git</li>
+        
+        <li>3. 在 Chrome 扩展管理页面加载已解压的扩展（选择项目目录）</li>
+        
+        <li>4. 点击工具栏图标，首次使用会启动本地 daemon，之后一键抓取</li>
+        
+      </ol>
+    </div>
+    
+
+    <!-- 本周行动 -->
+    
+    <div class="action-box">
+      <div style="font-size:12px; color:#f0883e; font-weight:700; margin-bottom:6px;">⚡ 本周行动</div>
+      <ol style="margin:0; padding-left: 18px;">
+        
+        <li>本周测试项目在自己设备上能否稳定运行</li>
+        
+        <li>调研 B站/YouTube 下载工具用户痛点，列出付费功能清单</li>
+        
+        <li>写一篇《一键下载全网视频：小耳抓视频部署教程》发到掘金/知乎引流</li>
+        
+      </ol>
+    </div>
+    
+
+    
+  </div>
+  
+
+  <div class="footer">
+    <p>💌 本刊由 AI 自动生成，每周一更新。</p>
+    <p>由 <a href="https://github.com/xiaohaohhh123">xiaohaohhh123</a> 维护 ·
+    <a href="https://xiaohaohhh123.github.io/-github-trending-weekly">在线阅读</a> ·
+    <a href="https://xiaohaohhh123.github.io/-github-trending-weekly/rss.xml">RSS 订阅</a></p>
+    <p style="margin-top:12px; color:#484f58;">Powered by DeepSeek AI + GitHub Actions · 零成本运营</p>
+  </div>
+</div>
+</body>
+</html>
